@@ -20,8 +20,9 @@ def create_dummy(dataframe, collist, target):
     
     target - value in the column that will have value 1. every other value will be replaced by 0
     '''
+    neme = ''
     for col in [x for x in dataframe.columns if x in collist]:
-        temp = pd.Series(dummy.FireplaceQu).replace(target, 1).replace('[^target]', 0, regex=True)
+        temp = pd.Series(dataframe[col].replace(target, 1).replace('[^target]', 0, regex=True))
         name = 'Missing' + str(col)
         dataframe[name] = temp
     return dataframe
