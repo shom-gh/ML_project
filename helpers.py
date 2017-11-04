@@ -1,3 +1,5 @@
+import pandas
+
 def fill_miss(dataframe,collist, repl):
     '''
     replaces NaNs in the columns with repl string.
