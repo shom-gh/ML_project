@@ -2,7 +2,7 @@ import pandas as pd
 
 def fill_miss(dataframe,collist, repl):
     '''
-    replaces NaNs in the columns with repl string.
+    MUTATING. replaces NaNs in the columns with repl string.
     
     dataframe - Pandas dataframe to fill 
     collist - list of columns in the dataframe to fill the missing values
@@ -26,3 +26,15 @@ def create_dummy(dataframe, collist, target):
         name = 'Missing' + str(col)
         dataframe[name] = temp
     return dataframe
+
+def leveler(dataframe, column, asc_list):
+    '''
+    .MUTATING. converts values in the dataframe into numbers
+    
+    dataframe - Pandas dataframe
+    column - column to transform
+    asc_list - list of values in the cloumn in ascending order.
+    values in the asc_list will be replaced by 0,1,2,3...
+    '''
+    for i in range(len(asc_list)):
+        dataframe[column].replace(asc_list[i], i, inplace=True)
