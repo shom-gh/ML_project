@@ -1,4 +1,4 @@
-import pandas
+import pandas as pd
 
 def fill_miss(dataframe,collist, repl):
     '''
